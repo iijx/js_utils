@@ -12,3 +12,10 @@ export const randomNoRepeat_N = (min, max, n) => {
     // 随机排序，取前n个
     return arr.sort(() => Math.random() - 0.5).slice(0, n)
 }
+
+/**
+ * 指定[min, max) 范围随机数
+ * @param {*} min 
+ * @param {*} max 
+ */
+export const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min)) + min;
