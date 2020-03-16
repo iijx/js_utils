@@ -67,3 +67,10 @@ export const compareDateByDay = (day1, day2) => {
     if (day1.setHours(0, 0, 0, 0) === day2.setHours(0, 0, 0, 0)) return 0;
     else return day1 > day2 ? 1 : -1;
 }
+
+/**
+ * 判断两个date之间的天数差
+ * @param {*} dateInitial 
+ * @param {*} dateFinal 
+ */
+const getDaysDiffBetweenDates = (dateInitial, dateFinal) => (dateFinal - dateInitial) / (1000 * 3600 * 24);
