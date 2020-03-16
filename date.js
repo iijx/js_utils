@@ -74,3 +74,15 @@ export const compareDateByDay = (day1, day2) => {
  * @param {*} dateFinal 
  */
 const getDaysDiffBetweenDates = (dateInitial, dateFinal) => (dateFinal - dateInitial) / (1000 * 3600 * 24);
+
+
+/**
+ * 根据某一天，得到相对某一天的日期
+ * @param {*} day 
+ * @param {*} addDayNum 
+ */
+export const getDateByAddDay = (day, addDayNum) => {
+    let t = new Date(day)
+    t.setDate(t.getDate() + addDayNum)
+    return t
+}
