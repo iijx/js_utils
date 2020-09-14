@@ -86,3 +86,54 @@ export const getDateByAddDay = (day, addDayNum) => {
     t.setDate(t.getDate() + addDayNum)
     return t
 }
+
+
+/**
+ * 根据指定日期，获取其所在一周的日期，
+ * @param {*} date 
+ */
+export const getWeekByDate = date => {
+    const dateOfToday = date.getTime();
+    const dayOfToday = (new Date().getDay() + 7 - 1) % 7
+    return Array.from(new Array(7))
+      .map((_, i) => {
+        return new Date(dateOfToday + (i - dayOfToday) * 1000 * 60 * 60 * 24)
+      })
+}
+
+
+/**
+ * 获取根据指定日期获取加减指定天数后的奇迹
+ * @param {*} day 当前日期
+ * @param {*} addDayNum 增加天数
+ */
+export const getDateByAddDay = (day, addDayNum) => {
+    let t = new Date(day)
+    t.setDate(t.getDate() + addDayNum)
+    return t
+}
+
+/**
+ * 复制文本
+ * @param {*} str 
+ */
+export const copyText = str => {
+    let oInput = document.createElement('input')
+    oInput.value = str
+    document.body.appendChild(oInput)
+    oInput.select()
+    document.execCommand('Copy')
+    oInput.className = 'oInput'
+    oInput.style.display = 'none'
+}
+
+/**
+ * // 字符串转字符流
+ * @param {*} s 
+ */
+export function s2ab(s) {
+    let buf = new ArrayBuffer(s.length)
+    let view = new Uint8Array(buf)
+    for (let i = 0; i !== s.length; ++i) view[i] = s.charCodeAt(i) & 0xFF
+    return buf
+}
